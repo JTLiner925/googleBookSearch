@@ -1,12 +1,18 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import BookResults from "./src/BookResults/BookResults";
+import BookSearch from "./src/BookSearch/BookSearch";
 
-function App() {
-  return (
-    <div className="App">
-     
-    </div>
-  );
+class App extends Component {
+  render() {
+    
+    return (
+      <div className="App">
+        <BookSearch /> 
+        <BookResults />
+      </div>
+    );
+  }
 }
 
 export default App;
