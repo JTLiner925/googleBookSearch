@@ -1,0 +1,16 @@
+header{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+}
+h1{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+    height: 150px;
+}

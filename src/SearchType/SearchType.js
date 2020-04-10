@@ -6,7 +6,7 @@ import BookType from '../BookType/BookType';
 export default class SearchType extends Component{
     render(){
         return(
-            <div>
+            <div className='SearchType'>
                 <PrintType />
                 <BookType />
             </div>

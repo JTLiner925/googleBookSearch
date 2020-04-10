@@ -1,0 +1,40 @@
+
+.eachBook {
+    display: flex;
+    flex-direction: column;
+    flex: 4 ;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+}
+
+.bookTitle{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    flex: 4;
+    text-align: center;
+    height: 60px;
+}
+.bookDesc{
+    display: flex;
+    flex: 4;
+    min-height: 300px;
+    font-size: 20px;
+}
+.bookPic{   
+    flex: 1;
+    
+}
+.bookInfo{
+    justify-content: flex-start;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    flex: 3;  
+    padding: 20px;
+}
+.description{
+    margin-top: 20px;
+}

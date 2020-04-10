@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import BookResults from "./src/BookResults/BookResults";
-import BookSearch from "./src/BookSearch/BookSearch";
+import BookResults from "./BookResults/BookResults";
+import BookSearch from "./BookSearch/BookSearch";
 
 class App extends Component {
   render() {

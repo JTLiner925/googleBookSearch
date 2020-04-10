@@ -4,10 +4,13 @@ import './PrintType.css';
 export default class PrintType extends Component{
     render(){
         return(
-            <div>
+            <div className='PrintType'>
                 <label>
-                   Print Type: <select value='All'></select>
+                   Print Type: 
                 </label>
+                <select className='printSelect'>
+                    <option>All</option>
+                </select>
             </div>
         )
     }

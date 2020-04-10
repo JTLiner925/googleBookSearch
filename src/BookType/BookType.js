@@ -4,10 +4,13 @@ import './BookType.css';
 export default class BookType extends Component{
     render(){
         return(
-            <div>
+            <div className='BookType'>
                 <label>
-                   Book Type: <select value='No Filter'></select>
+                   Book Type: 
                 </label>
+                <select className='bookSelect'>
+                    <option>No Filter</option>
+                </select>
             </div>
         )
     }

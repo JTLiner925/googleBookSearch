@@ -1,0 +1,7 @@
+.SearchType{
+    display: flex;
+    justify-content: center;
+    /* padding: 10px; */
+    background-color: rgb(201, 200, 200);
+    font-size: 20px;
+}
