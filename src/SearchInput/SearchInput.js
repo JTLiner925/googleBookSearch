@@ -6,7 +6,7 @@ export default class SearchInput extends Component{
         return(
             <div className='searchBar'>
                 <label htmlFor='search'>Search:</label>
-                <input type='search' id='search'></input>
+                <input type='search' id='search' placeholder="Search term"></input>
                 <button>Search</button>
             </div>
         )
