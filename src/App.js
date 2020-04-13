@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
-import BookResults from "./BookResults/BookResults";
+// import BookResults from "./BookResults/BookResults";
 import BookSearch from "./BookSearch/BookSearch";
 
+const API_Key = 'AIzaSyCq81ypL09vSFd4YnaucYabB95flDIKUcI';
 class App extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,13 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://www.googleapis.com/auth/books")
+    const url = "https://www.googleapis.com/auth/books/v1/volumes";
+    const options = {
+      method: 'GET',
+      'key': API_Key,
+          }
+
+    fetch(url, options)
       .then(response => {
         if (!response.ok) {
           throw new Error("Something went wrong, please try again later.");
@@ -45,7 +52,7 @@ class App extends Component {
     return (
       <div className="App">
         <BookSearch /> 
-        <BookResults />
+        {/* <BookResults /> */}
       </div>
     );
   }
