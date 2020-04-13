@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import './SearchInput.css';
 
-export default class SearchInput extends Component{
-    render(){
+export default function SearchInput(props){
+        const error = props.error 
+          ? <div className="error">{props.error}</div>
+          : "";
         return(
             <div className='searchBar'>
+                { error }
                 <label htmlFor='search'>Search:</label>
-                <input type='search' id='search' placeholder="Search term"></input>
+                <input type='search' id='search' placeholder="Search term" required></input>
                 <button>Search</button>
             </div>
         )
-    }
 } 
