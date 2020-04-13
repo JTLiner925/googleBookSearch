@@ -38,10 +38,10 @@ export default class SearchBar extends Component {
         const newSearch = (({q, printType, filter}) => ({q, printType, filter}))(this.state);
         const url ='https://www.googleapis.com/books/v1/volumes';
         const options = {
-          method: 'POST',
-          body: JSON.stringify(newSearch),
+          method: 'GET',
+        //   body: JSON.stringify(newSearch),
       headers: {
-      'Authorization': API_KEY
+      'key': API_KEY
           }
         };
     
@@ -89,11 +89,18 @@ export default class SearchBar extends Component {
                 filter={this.props.filter}
                 printType={this.props.printType}
                 selected={this.props.selected} 
+                handleSubmit={this.handleSubmit}
                 error={error}
                 />
                 <SearchType 
+                handleSubmit={this.handleSubmit}
                 error={error}
+                updateFeature={this.props.updateFeature}
                 selected={this.props.selected}
+                q={this.props.q}
+                filter={this.props.filter}
+                printType={this.props.printType}
+                changeHandler={this.props.changeHandler}
                 // filterOption={filterOption}
                 />
                 </form>

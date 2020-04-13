@@ -8,7 +8,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      q: [],
+      q: '',
       printType: [],
       filter: [],
       selected: null
@@ -29,7 +29,7 @@ class App extends Component {
           method: 'GET',
           body: JSON.stringify(newSearch),
       headers: {
-      'Authorization': API_KEY
+      'key': API_KEY
           }
         };
     fetch(url, options)
@@ -48,6 +48,7 @@ class App extends Component {
           q,
           error: null
         });
+
       })
       .catch(err => {
         this.setState({
@@ -76,6 +77,7 @@ class App extends Component {
         q={this.state.q}
         filter={this.state.filter}
         printType={this.state.printType}
+        changeHandler={selected => this.setSelected(selected)}
         selected={this.props.selected}/> 
         <BookResults />
       </div>

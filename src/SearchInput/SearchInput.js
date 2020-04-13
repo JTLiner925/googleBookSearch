@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './SearchInput.css';
 
 export default function SearchInput(props){
@@ -10,7 +10,7 @@ export default function SearchInput(props){
                 { error }
                 <label htmlFor='search'>Search:</label>
                 <input type='search' id='search' placeholder="Search term" required></input>
-                <button>Search</button>
+                <button type='submit'>Search</button>
             </div>
         )
 } 
