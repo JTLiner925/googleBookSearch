@@ -28,10 +28,10 @@ export default class PrintType extends Component{
                 <select 
                 id="printType"
                 name="printType"
-                onChange={e => this.changeSelection(e.target.value)}
+                
                 className='printSelect'>
-                    <option value="None">Select one...</option>
-                    {options}
+                    <option value="None">Select one...{options}</option>
+                    
                 </select>
             </div>
         )

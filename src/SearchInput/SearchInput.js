@@ -10,7 +10,9 @@ export default function SearchInput(props){
                 { error }
                 <label htmlFor='search'>Search:</label>
                 <input type='search' id='search' placeholder="Search term" required></input>
-                <button type='submit'>Search</button>
+                <button type='submit'
+                onChange={e => this.changeSelection(e.target.value)}
+                >Search</button>
             </div>
         )
 } 
