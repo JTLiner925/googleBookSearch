@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './BookResults.css';
-import BookList from '../BookList/BookList';
+import BookCard from '../BookCard/BookCard';
 
 export default class BookResults extends Component {
 render(){
     return(
         <main>
-        <BookList />
+        <BookCard />
         </main>
     )
 }

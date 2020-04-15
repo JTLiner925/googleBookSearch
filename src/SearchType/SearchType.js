@@ -1,31 +1,18 @@
-import React, { Component } from 'react';
-import './SearchType.css';
-import PrintType from '../PrintType/PrintType';
-import BookType from '../BookType/BookType';
+import React, { Component } from "react";
+import "./SearchType.css";
+import Select from "../Select/Select";
 
-export default class SearchType extends Component{
-    render(){
-        return(
-            <div className='SearchType'>
-                <PrintType 
-                handleSubmit={this.handleSubmit}
-                error={this.props.error}
-                updateFeature={this.props.updateFeature}
-                selected={this.props.selected}
-                q={this.props.q}
-                filter={this.props.filter}
-                printType={this.props.printType}
-                changeHandler={this.props.changeHandler}
-                />
-                <BookType 
-                error={this.props.error}
-                updateFeature={this.props.updateFeature}
-                selected={this.props.selected}
-                q={this.props.q}
-                filter={this.props.filter}
-                printType={this.props.printType}
-                changeHandler={this.props.changeHandler}/>
-            </div>
-        )
-    }
-} 
+export default class SearchType extends Component {
+  state = {
+    printType: ["All", "Books", "Magazines"],
+    bookType: ["Partial", "Full", "Free-ebooks", "Paid-ebooks", "ebooks"]
+  };
+  render() {
+    return (
+      <div className="SearchType">
+        <Select options={this.state.printType} updateFeature={this.props.updateFeature} type="printType" />
+        <Select options={this.state.bookType} updateFeature={this.props.updateFeature} type="bookType" />
+      </div>
+    );
+  }
+}
