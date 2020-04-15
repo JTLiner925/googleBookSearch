@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       q: '',
       printType: [],
-      filter: [],
+      filter: [0],
       selected: null
     };
   }
@@ -33,19 +33,30 @@ class App extends Component {
           }
         };
     fetch(url, options)
+    
       .then(response => {
         
         if (!response.ok) {
           throw new Error("Something went wrong, please try again later.");
         }
-        console.log(response)
-        // return response;
+        
+        return response;
       })
       .then(response => response.json())
+      
       .then(data => {
-        const q = Object.keys(data).map(key => data[key].item[0]);
+        console.log(data)
+        const search = Object.keys(data).map(key => {
+          const eachSearch = {
+            q: data[key].q[''],
+            printType: data[key].printType[0],
+            filter: data[key].filter[0]
+          }
+          return eachSearch;
+            }
+        );
         this.setState({
-          q,
+          search,
           error: null
         });
 
@@ -68,6 +79,7 @@ class App extends Component {
       selected
     });
   };
+
   render() {
     
     return (
