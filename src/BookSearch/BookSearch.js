@@ -32,22 +32,14 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    // const searchSummary = Object.keys(this.props.selected)
-    // const newSearch = searchSummary.map((q, printType, filter, idx) => {
-    //   const featureHash = q + "-" + idx;
-    //     const filterOption = this.props.selected[filter];
-
     const error = this.state.error ? (
       <div className="error">{this.state.error}</div>
     ) : (
       ""
     );
-    //   console.log(error)
     return (
       <header>
-       
           <h1>Google Book Search</h1>
-
           <SearchInput 
           fetchBooks={this.props.fetchBooks}
           updateFeature={this.props.updateFeature} error={error} />
@@ -55,8 +47,6 @@ export default class SearchBar extends Component {
             handleSubmit={this.handleSubmit}
             error={error}
             updateFeature={this.props.updateFeature}
-
-            // filterOption={filterOption}
           />
       </header>
     );

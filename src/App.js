@@ -1,38 +1,56 @@
 import React, { Component } from "react";
+import slugify from 'slugify';
 import "./App.css";
 import BookResults from "./BookResults/BookResults";
 import BookSearch from "./BookSearch/BookSearch";
-
+const API_URL = 'https://www.googleapis.com/books/v1/volumes';
 const API_Key = 'AIzaSyCq81ypL09vSFd4YnaucYabB95flDIKUcI';
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       q: 'joel richardson',
-      printType: '',
-      bookType: '',
+      printType: 'all',
+      bookType: 'full',
     };
   }
-  fetchBooks = () => {
-    const search = this.state.q;
-    const printType = this.state.printType;
-    const bookType = this.state.bookType;
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${search}&printType=${printType}&filter=${bookType}&key=${API_Key}`
-console.log(url)
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${search}&printType=${printType}&filter=${bookType}&key=${API_Key}`)
-    // .then(res => {
-    //   if(!res.ok) {
-    //     throw new Error('Something went wrong, please try again later.');
-    //   }
-    //   return res;
-    // })
+  formatQueryParams = (params) => {
+    const queryItems = Object.keys(params).map(key => `${key}=${params[key]}`);
+    return slugify(queryItems, '+').join('&');
+  }
+  fetchBooks = (passage, print, book, key) => {
+    const params = {
+      passage: this.state.q,
+      print: this.state.printType,
+      book: this.state.bookType,
+      key: API_Key 
+    };
+    const queryString = this.formatQueryParams(params);
+    
+    const url = API_URL + '?' + queryString;
+    console.log(url)
+    const options = {
+      method: 'GET',
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+   
+    fetch(url, options)
+    .then(res => {
+      if(!res.ok) {
+        throw new Error('Something went wrong, please try again later.');
+      }
+      console.log(res)
+      return res;
+    })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
-      // this.setState({
-      //   feature: data,
-      //   error: null
-      // });
+    
+      this.setState({
+        feature: data.items,
+        error: null
+      });
     })
     .catch(err => {
       this.setState({
